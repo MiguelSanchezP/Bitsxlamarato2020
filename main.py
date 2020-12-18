@@ -26,22 +26,24 @@ for line in f:
 	data.append(line)
 
 patients_COVID_Positive = []
+patients_COVID_Negative = []
 
 for value in data:
-	if value.split(',')[122] == '1' or value.split(',')[127] == '1':
+	if value.split(',')[31] == '1' and (value.split(',')[117] == '1' or value.split(',')[122] == '1'):
 		patients_COVID_Positive.append(value)
-
+	elif value.split(',')[31] == '1' and (value.split(',')[117] == '0' and value.split(',')[122] == '0'):
+		patients_COVID_Negative.append(value)
 
 symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alterated Respiratory Auscultation",
 		     "Odynophagia", "Nasal Congestion", "Fatigue", "Headache", "Conjuntivitis", "Retro-ocular Pain",
 		     "Gastrointestinal Symptoms", "Skin Signs", "Lymphadenopathy", "Hepatomegaly", "Splenomegaly",
-		     "Hemorragies", "Irritability", "Neurologic Manifestations", "Shock", "Taste Alteration",
+		     "Hemorrhagies", "Irritability", "Neurologic Manifestations", "Shock", "Taste Alteration",
 		     "Smell Alteration"],
-		    ["38", "43", "47", "49", "51", "53", "57", "59", "61", "63", "65", "67", "69", "74", "79", "81",
-		     "83", "85", "87", "89", "96", "98", "100"],
+		    ["33", "38", "42", "44", "46", "48", "52", "54", "56", "58", "60", "62", "64", "69", "74", "76",
+		     "78", "80", "82", "84", "91", "93", "95"],
 		    ['1', '1', '1', '1', '1', '2', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1',
 		     '1', '1', '1', '1'],
 		    ['2', '2', '2', '2', '2', '1', '2', '2', '2', '2', '2', '2', '0', '0', '2', '2', '2', '2', '2',
 		     '0', '0', '0', '0']]
 
-check_for_symptoms(patients_COVID_Positive, "Fever")
+check_for_symptoms(patients_COVID_Positive, "Taste Alteration")

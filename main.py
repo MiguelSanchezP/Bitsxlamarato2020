@@ -79,8 +79,12 @@ def compare(ppd, npd, plot, min_difference):
 
 		fig2,ax2 = plt.subplots()
 		x = np.arange(len(differences))
+		y = np.ones(len(differences))
+		y2 = np.ones(len(differences))
 		plt.title("Difference between COVID and non-COVID symptoms")
 		plt.stem (x, differences, use_line_collection=True)
+		plt.plot (x, np.ones(len(x))*min_difference/100, 'r--', linewidth=0.5)
+		plt.plot (x, np.ones(len(x))*min_difference/100*-1, 'r--', linewidth=0.5)
 		plt.xticks(np.arange(len(differences)), conditions, rotation=90)
 #		fig2.tight_layout()
 		plt.show()
@@ -165,7 +169,7 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 #check_for_symptoms(patients_COVID_Positive, "Cough", True)
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-weighted_conditions = compare (positive_patients_data, negative_patients_data, False, 10)
+weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 0)
 combinations = generate_possible_combinations(weighted_conditions)
 #print (combinations)
 probabilities = []

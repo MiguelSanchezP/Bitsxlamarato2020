@@ -8,14 +8,20 @@ def check_for_symptoms (patients, symptoms, plot):
 		patient_with_symptom = 0
 		patient_without_symptom = 0
 		patient_undetermined = 0
+		positive_males = 0
+		positive_females = 0
 		for patient in patients:
 			if patient.split(',')[int(symptoms_general[1][symptoms_general[0].index(symptom)])] == symptoms_general[2][symptoms_general[0].index(symptom)]:
 				patient_with_symptom += 1
+				if patient.split(',')[2] == '1':
+					positive_males += 1
+				elif patient.split(',')[2] == '2':
+					positive_females += 1
 			elif patient.split(',')[int(symptoms_general[1][symptoms_general[0].index(symptom)])] == symptoms_general[3][symptoms_general[0].index(symptom)]:
 				patient_without_symptom += 1
 			else:
 				patient_undetermined += 1
-		data = [symptom, patient_with_symptom, patient_without_symptom, patient_undetermined]
+		data = [symptom, patient_with_symptom, patient_without_symptom, patient_undetermined, positive_males, positive_females]
 		symptoms_data.append(data)
 		if plot:
 			plt.figure(figure_count)
@@ -32,7 +38,7 @@ def check_for_symptoms (patients, symptoms, plot):
 	return symptoms_data
 
 
-def compare(ppd, npd, plot, min_difference):
+def compare(ppd, npd, plot, min_difference, sex):
 	normalized_ppd = []
 	normalized_npd = []
 	conditions = []
@@ -40,15 +46,29 @@ def compare(ppd, npd, plot, min_difference):
 	positive_npd = []
 	negative_ppd = []
 	negative_npd = []
+	positive_ppd_males = []
+	positive_ppd_females = []
+	positive_ppd_undetermined = []
+	positive_npd_males = []
+	positive_npd_females = []
+	positive_npd_undetermined = []
 	for value in ppd:
 		normalized_ppd.append([value[0], value[1]/(value[1]+value[2]), value[2]/(value[1]+value[2]), value[3]])
 		conditions.append(value[0])
 		positive_ppd.append(value[1]/(value[1]+value[2]))
 		negative_ppd.append(value[2]/(value[1]+value[2]))
+		if sex:
+			positive_ppd_males.append(value[4]/(value[1]+value[2]))
+			positive_ppd_females.append(value[5]/(value[1]+value[2]))
+			positive_ppd_undetermined.append((value[1]-value[4]-value[5])/(value[1]+value[2]))
 	for value in npd:
 		normalized_npd.append([value[0], value[1]/(value[1]+value[2]), value[2]/(value[1]+value[2]), value[3]])
 		positive_npd.append(value[1]/(value[1]+value[2]))
 		negative_npd.append(value[2]/(value[1]+value[2]))
+		if sex:
+			positive_npd_males.append(value[4]/(value[1]+value[2]))
+			positive_npd_females.append(value[5]/(value[1]+value[2]))
+			positive_npd_undetermined.append((value[1]-value[4]-value[5])/(value[1]+value[2]))
 	differences = []
 	for i in range (len(positive_ppd)):
 		differences.append(positive_ppd[i]-positive_npd[i])
@@ -67,17 +87,34 @@ def compare(ppd, npd, plot, min_difference):
 		x = np.arange(len(conditions))
 		plt.title("Relation between Covid and non covid symptomatology")
 		ax[0].set_title("COVID Results")
-		ax[0].bar(x, positive_ppd, width=0.35)
+		if not sex:
+			ax[0].bar(x, positive_ppd, width=0.35)
+		if sex:
+			bar_males = ax[0].bar(x, positive_ppd_males, width=0.35)
+			bar_females = ax[0].bar(x, positive_ppd_females, width=0.35, bottom=positive_ppd_males)
+			bar_undetermined = ax[0].bar(x, positive_ppd_undetermined, width=0.35, bottom=positive_ppd_females)
 		ax[0].bar(x+0.35, negative_ppd, width=0.35)
 		ax[0].set_ylim([0,1])
 		ax[1].set_title("NON-COVID Results")
-		ax[1].bar(x, positive_npd, width=0.35)
+		legend = []
+		if not sex:
+			ax[1].bar(x, positive_npd, width=0.35)
+			legend.append ("Positives")
+		if sex:
+			bar_males = ax[1].bar(x, positive_npd_males, width=0.35)
+			legend.append ("Male")
+			bar_females = ax[1].bar(x, positive_npd_females, width=0.35, bottom=positive_npd_males)
+			legend.append("Female")
+			bar_undetermined = ax[1].bar(x, positive_npd_undetermined, width=0.35, bottom=positive_npd_females)
+			legend.append("Undetermined")
 		ax[1].bar(x+0.35, negative_npd, width=0.35)
+		legend.append("Negative")
 		ax[1].set_ylim([0,1])
 
 		plt.setp(ax[1], xticks=x, xticklabels=conditions)
 		plt.setp(ax[1].get_xticklabels(), rotation=90)
 		plt.setp(ax[0], xticks=x, xticklabels=conditions)
+		plt.legend(legend, loc='best')
 
 		for a in fig.get_axes():
 			a.label_outer()
@@ -175,7 +212,7 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 #check_for_symptoms(patients_COVID_Positive, "Cough", True)
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10)
+weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10, True)
 combinations = generate_possible_combinations(weighted_conditions)
 #print (combinations)
 probabilities = []

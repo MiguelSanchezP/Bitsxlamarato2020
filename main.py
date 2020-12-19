@@ -42,6 +42,10 @@ def compare(ppd, npd, plot):
 		normalized_npd.append([value[0], value[1]/(value[1]+value[2]), value[2]/(value[1]+value[2]), value[3]])
 		positive_npd.append(value[1]/(value[1]+value[2]))
 		negative_npd.append(value[2]/(value[1]+value[2]))
+	differences = []
+	for i in range (len(positive_ppd)):
+		differences.append(abs(positive_ppd[i]-positive_npd[i]))
+
 	if plot:
 		fig,ax = plt.subplots(2)
 		x = np.arange(len(conditions))
@@ -59,6 +63,12 @@ def compare(ppd, npd, plot):
 		for a in fig.get_axes():
 			a.label_outer()
 #		fig.tight_layout()
+
+		fig2,ax2 = plt.subplots()
+		x = np.arange(len(differences))
+		plt.stem (x, differences, use_line_collection=True)
+		plt.xticks(np.arange(len(differences)), conditions, rotation=90)
+#		fig2.tight_layout()
 		plt.show()
 
 

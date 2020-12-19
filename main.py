@@ -46,12 +46,19 @@ def compare(ppd, npd, plot):
 	for i in range (len(positive_ppd)):
 		differences.append(abs(positive_ppd[i]-positive_npd[i]))
 
+	for i in range (len(differences)):
+		if differences[i] > 0.15:
+			print (conditions[i] + " has a difference of over 10 percent between Covid and another diseases")
+
 	if plot:
 		fig,ax = plt.subplots(2)
 		x = np.arange(len(conditions))
+		plt.title("Relation between Covid and non covid symptomatology")
+		ax[0].set_title("COVID Results")
 		ax[0].bar(x, positive_ppd, width=0.35)
 		ax[0].bar(x+0.35, negative_ppd, width=0.35)
 		ax[0].set_ylim([0,1])
+		ax[1].set_title("NON-COVID Results")
 		ax[1].bar(x, positive_npd, width=0.35)
 		ax[1].bar(x+0.35, negative_npd, width=0.35)
 		ax[1].set_ylim([0,1])
@@ -66,6 +73,7 @@ def compare(ppd, npd, plot):
 
 		fig2,ax2 = plt.subplots()
 		x = np.arange(len(differences))
+		plt.title("Difference between COVID and non-COVID symptoms")
 		plt.stem (x, differences, use_line_collection=True)
 		plt.xticks(np.arange(len(differences)), conditions, rotation=90)
 #		fig2.tight_layout()

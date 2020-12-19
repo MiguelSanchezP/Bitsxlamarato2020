@@ -55,7 +55,7 @@ def compare(ppd, npd, plot, min_difference):
 			differences[i] = 0
 		if abs(differences[i]) >= min_difference/100:
 			weighted_conditions.append([conditions[i], differences[i]])
-			print (conditions[i] + " has a difference of " + str(differences[i]))
+#			print (conditions[i] + " has a difference of " + str(differences[i]))
 	if plot:
 		fig,ax = plt.subplots(2)
 		x = np.arange(len(conditions))
@@ -139,6 +139,8 @@ data = []
 for line in f:
 	data.append(line)
 
+f.close()
+
 patients_COVID_Positive = []
 patients_COVID_Negative = []
 
@@ -188,3 +190,7 @@ for combination in combinations:
 			if mult_positive_patients_data[0] == 0 and not (mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0:
 				probabilities.append([combination[0], 0])
 #				print (combination[0] + ': 0')
+f = open ('./Output/Probabilities.txt', 'w+')
+for probability in probabilities:
+	f.write(probability[0] + ': ' + str(probability[1]) + '\n')
+f.close()

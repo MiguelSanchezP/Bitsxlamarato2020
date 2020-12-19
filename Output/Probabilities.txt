@@ -1,0 +1,43 @@
+Fatigue,Headache: 0.6907512437117654
+Fatigue,Irritability: 0.6442953020134228
+Fatigue,Neurologic Manifestations: 0.0
+Fatigue,Taste Alteration: 0.9480671344063832
+Fatigue,Smell Alteration: 0.952078705172961
+Headache,Irritability: 1
+Headache,Neurologic Manifestations: 1
+Headache,Taste Alteration: 0.8901818181818182
+Headache,Smell Alteration: 0.9270430701270016
+Irritability,Neurologic Manifestations: 0.0
+Irritability,Taste Alteration: 1
+Irritability,Smell Alteration: 1
+Neurologic Manifestations,Taste Alteration: 1
+Neurologic Manifestations,Smell Alteration: 1
+Taste Alteration,Smell Alteration: 0.9420935412026726
+Dysphonia,Tachypnea: 0.7345549738219895
+Dysphonia,Alterated Respiratory Auscultation: 0
+Dysphonia,Retro-ocular Pain: 0
+Dysphonia,Skin Signs: 0
+Dysphonia,Lymphadenopathy: 0
+Dysphonia,Hemorrhagies: 0
+Dysphonia,Shock: 0
+Tachypnea,Alterated Respiratory Auscultation: 0.2107496463932107
+Tachypnea,Retro-ocular Pain: 0
+Tachypnea,Skin Signs: 0
+Tachypnea,Lymphadenopathy: 0
+Tachypnea,Hemorrhagies: 0
+Tachypnea,Shock: 0
+Alterated Respiratory Auscultation,Retro-ocular Pain: 0
+Alterated Respiratory Auscultation,Skin Signs: 0
+Alterated Respiratory Auscultation,Lymphadenopathy: 0
+Alterated Respiratory Auscultation,Hemorrhagies: 0
+Alterated Respiratory Auscultation,Shock: 0
+Retro-ocular Pain,Skin Signs: 0
+Retro-ocular Pain,Lymphadenopathy: 0
+Retro-ocular Pain,Hemorrhagies: 0
+Retro-ocular Pain,Shock: 0
+Skin Signs,Lymphadenopathy: 0
+Skin Signs,Hemorrhagies: 0
+Skin Signs,Shock: 0
+Lymphadenopathy,Hemorrhagies: 0
+Lymphadenopathy,Shock: 0
+Hemorrhagies,Shock: 0

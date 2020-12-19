@@ -54,7 +54,7 @@ def compare(ppd, npd, plot, min_difference):
 		else:
 			differences[i] = 0
 		if abs(differences[i]) >= min_difference/100:
-			weighted_conditions.append(conditions[i])
+			weighted_conditions.append([conditions[i], differences[i]])
 			print (conditions[i] + " has a difference of " + str(differences[i]))
 	if plot:
 		fig,ax = plt.subplots(2)
@@ -115,6 +115,24 @@ def check_for_multiple_symptoms (patients, symptoms_raw, plot):
 	return result
 
 
+def generate_possible_combinations (conditions):
+	positive_conditions = []
+	negative_conditions = []
+	combinations = []
+	for condition in conditions:
+		if condition[1] > 0:
+			positive_conditions.append(condition[0])
+		if condition[1] < 0:
+			negative_conditions.append(condition[0])
+	for i in range(len(positive_conditions)):
+		for j in range(i+1, (len(positive_conditions))):
+			combinations.append(positive_conditions[i]+','+positive_conditions[j])
+	for i in range(len(negative_conditions)):
+		for j in range(i+1, (len(negative_conditions))):
+			combinations.append(negative_conditions[i]+','+negative_conditions[j])
+	return combinations
+
+
 f = open ("./Files/COPEDICATClinicSympt_DATA_2020-12-17_1642.csv", 'r')
 
 data = []
@@ -146,9 +164,14 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10)
-#generate_possible_combinations(weighted_conditions)
-mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, "Smell Alteration,Taste Alteration", True)
-mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, "Smell Alteration,Taste Alteration", True)
-print (mult_positive_patients_data)
-print (mult_negative_patients_data)
-print (str((mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))))
+combinations = generate_possible_combinations(weighted_conditions)
+#print (combinations)
+for combination in combinations:
+	mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, combination, False)
+	mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, combination, False)
+	if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_positive_patients_data[0] == 0:
+		x = (mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))
+		print (combination + ': ' + str(x/(x+1)))
+#print (mult_positive_patients_data)
+#print (mult_negative_patients_data)
+#print (str((mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))))

@@ -52,7 +52,7 @@ def compare(ppd, npd, plot, min_difference):
 			differences[i] = differences[i]/(positive_ppd[i] + positive_npd[i])
 		else:
 			differences[i] = 0
-		if abs(differences[i]) > min_difference/100:
+		if abs(differences[i]) >= min_difference/100:
 			print (conditions[i] + " has a difference of " + str(differences[i]))
 
 	if plot:
@@ -122,9 +122,9 @@ patients_COVID_Positive = []
 patients_COVID_Negative = []
 
 for value in data:
-	if value.split(',')[31] == '1' and (value.split(',')[117] == '1' or value.split(',')[122] == '1'):
+	if value.split(',')[31] == '1' and (value.split(',')[117] == '1' or value.split(',')[122] == '1' or value.split(',')[107] == '1'):
 		patients_COVID_Positive.append(value)
-	elif value.split(',')[31] == '1' and (value.split(',')[117] == '2' and value.split(',')[122] == '2'):
+	elif value.split(',')[31] == '1' and ((value.split(',')[117] == '2' or value.split(',')[117] == '') and (value.split(',')[122] == '2' or value.split(',')[122] == '') and (value.split(',')[107] == '2' or value.split(',')[107] == '')):
 		patients_COVID_Negative.append(value)
 
 symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alterated Respiratory Auscultation",
@@ -142,6 +142,6 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 #check_for_symptoms(patients_COVID_Positive, "Cough", True)
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-compare (positive_patients_data, negative_patients_data, True, 1)
+compare (positive_patients_data, negative_patients_data, True, 0)
 mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, "Fever,Cough", False)
 mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, "Fever,Cough", False)

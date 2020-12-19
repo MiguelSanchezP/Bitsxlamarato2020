@@ -1,6 +1,6 @@
 #import matplotlib.pyplot as plt
 #import numpy as np
-f = open ("COPEDICATClinicSympt_DATA_2020-12-17_1642.csv", 'r')
+f = open ("./Files/COPEDICATClinicSympt_DATA_2020-12-17_1642.csv", 'r')
 
 data = []
 for line in f:

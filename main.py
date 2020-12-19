@@ -25,7 +25,7 @@ def check_for_symptoms (patients, symptoms, plot):
 	return symptoms_data
 
 
-def compare(ppd, npd, plot):
+def compare(ppd, npd, plot, min_difference):
 	normalized_ppd = []
 	normalized_npd = []
 	conditions = []
@@ -47,8 +47,8 @@ def compare(ppd, npd, plot):
 		differences.append(abs(positive_ppd[i]-positive_npd[i]))
 
 	for i in range (len(differences)):
-		if differences[i] > 0.15:
-			print (conditions[i] + " has a difference of over 10 percent between Covid and another diseases")
+		if differences[i] > min_difference/100:
+			print (conditions[i] + " has a difference of over " + str(min_difference) + " percent between Covid and another diseases")
 
 	if plot:
 		fig,ax = plt.subplots(2)
@@ -77,6 +77,33 @@ def compare(ppd, npd, plot):
 		plt.stem (x, differences, use_line_collection=True)
 		plt.xticks(np.arange(len(differences)), conditions, rotation=90)
 #		fig2.tight_layout()
+		plt.show()
+
+
+def check_for_multiple_symptoms (patients, symptoms_raw, plot):
+	symptoms = symptoms_raw.split(',')
+	symptoms_values = []
+	result = [0, 0, 0]
+	for symptom in symptoms:
+		symptoms_values.append(int(symptoms_general[1][symptoms_general[0].index(symptom)]))
+	for patient in patients:
+		has_symptoms = True
+		is_undetermined = False
+		for i in symptoms_values:
+			if patient.split(',')[i] == symptoms_general[3][symptoms_general[0].index(symptoms[symptoms_values.index(i)])]:
+				has_symptoms = False
+			elif not patient.split(',')[i] == symptoms_general[2][symptoms_general[0].index(symptoms[symptoms_values.index(i)])] and not patient.split(',')[i] == symptoms_general[3][symptoms_general[0].index(symptoms[symptoms_values.index(i)])]:
+				is_undetermined = True
+		if has_symptoms and not is_undetermined:
+			result[0] += 1
+		elif not has_symptoms and not is_undetermined:
+			result[1] += 1
+		else:
+			result[2] += 1
+	if plot:
+		plt.title ("Presence of " + symptoms_raw)
+		plt_labels = ["Presence", "Absence", "Undetermined"]
+		plt.pie(result, labels=plt_labels)
 		plt.show()
 
 
@@ -110,4 +137,6 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 #check_for_symptoms(patients_COVID_Negative, "Taste Alteration", True)
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-compare (positive_patients_data, negative_patients_data, True)
+compare (positive_patients_data, negative_patients_data, False, 10)
+mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, "Fever,Cough", True)
+#mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, "Fever,Cough", True)

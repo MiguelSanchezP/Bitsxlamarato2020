@@ -3,6 +3,7 @@ import numpy as np
 
 def check_for_symptoms (patients, symptoms, plot):
 	symptoms_data = []
+	figure_count = 1
 	for symptom in symptoms.split(','):
 		patient_with_symptom = 0
 		patient_without_symptom = 0
@@ -17,10 +18,15 @@ def check_for_symptoms (patients, symptoms, plot):
 		data = [symptom, patient_with_symptom, patient_without_symptom, patient_undetermined]
 		symptoms_data.append(data)
 		if plot:
+			plt.figure(figure_count)
 			plot_data = [patient_with_symptom, patient_without_symptom, patient_undetermined]
 			plot_labels = ["Positive", "Negative", "Undetermined"]
-			plt.pie (plot_data, labels=plot_labels)
+			plt.pie (plot_data)
+			plt.legend(["Positive (" + str(round(patient_with_symptom/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative (" + str(round(patient_without_symptom/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100,2)) + "%)", "Undetermined (" + str(round(patient_undetermined/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100,2)) + "%)"], loc='lower left')
 			plt.title (symptom)
+			plt.tight_layout(h_pad=1)
+			figure_count += 1
+
 	if plot:
 		plt.show()
 	return symptoms_data
@@ -169,7 +175,7 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 #check_for_symptoms(patients_COVID_Positive, "Cough", True)
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 0)
+weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10)
 combinations = generate_possible_combinations(weighted_conditions)
 #print (combinations)
 probabilities = []

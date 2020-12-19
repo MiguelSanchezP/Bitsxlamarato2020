@@ -16,44 +16,44 @@ for value in data:
 		patients_COVID_Negative.append(value)
 
 def look_for_pathologies (patients, condition,plot):
-    condition_data = []
-    for condition in condition.split(','):
-        positive_with_condition = 0
-        positive_without_condition = 0
-        for patient in patients:
-            if patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[2][other_condition[0].index(condition)]:
-                positive_with_condition += 1
-            elif patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[3][other_condition[0].index(condition)]:
-                positive_without_condition += 1
-        data = [condition, positive_with_condition, positive_without_condition]
-        condition_data.append(data)
-        if plot:
+	condition_data = []
+	for condition in condition.split(','):
+		positive_with_condition = 0
+		positive_without_condition = 0
+		for patient in patients:
+			if patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[2][other_condition[0].index(condition)]:
+				positive_with_condition += 1
+			elif patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[3][other_condition[0].index(condition)]:
+				positive_without_condition += 1
+		data = [condition, positive_with_condition, positive_without_condition]
+		condition_data.append(data)
+		if plot:
 			plot_data = [positive_with_condition, positive_without_condition]
 			plot_labels = ["COVID+other", "Only COVID"]
 			plt.pie (plot_data, labels=plot_labels)
 			plt.title (condition)
-    if plot:
+	if plot:
 		plt.show()
 	return symptoms_data
 
 def find_incompatible_pathologies (patients, condition,plot):
-    condition_data = []
-    for condition in condition.split(','):
-        negative_with_condition = 0
-        negative_without_condition = 0
-        for patient in patients:
-            if patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[2][other_condition[0].index(condition)]:
-                negative_with_condition += 1
-            elif patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[3][other_condition[0].index(condition)]:
-                negative_without_condition += 1
-        data = [condition, positive_with_condition, positive_without_condition]
-        condition_data.append(data)
-        if plot:
+	condition_data = []
+	for condition in condition.split(','):
+		negative_with_condition = 0
+		negative_without_condition = 0
+		for patient in patients:
+			if patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[2][other_condition[0].index(condition)]:
+				negative_with_condition += 1
+			elif patients.split(',')[int(other_condition[1][other_condition[0].index(condition)])] == other_condition[3][other_condition[0].index(condition)]:
+				negative_without_condition += 1
+		data = [condition, positive_with_condition, positive_without_condition]
+		condition_data.append(data)
+		if plot:
 			plot_data = [positive_with_condition, positive_without_condition]
 			plot_labels = ["not COVID", "nothing"]
 			plt.pie (plot_data, labels=plot_labels)
 			plt.title (condition)
-    if plot:
+	if plot:
 		plt.show()
 	return symptoms_data
 

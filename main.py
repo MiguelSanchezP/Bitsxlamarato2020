@@ -47,14 +47,15 @@ def compare(ppd, npd, plot, min_difference):
 	for i in range (len(positive_ppd)):
 		differences.append(positive_ppd[i]-positive_npd[i])
 
+	weighted_conditions = []
 	for i in range (len(differences)):
 		if (positive_ppd[i]+positive_npd[i]) > 0:
 			differences[i] = differences[i]/(positive_ppd[i] + positive_npd[i])
 		else:
 			differences[i] = 0
 		if abs(differences[i]) >= min_difference/100:
+			weighted_conditions.append(conditions[i])
 			print (conditions[i] + " has a difference of " + str(differences[i]))
-
 	if plot:
 		fig,ax = plt.subplots(2)
 		x = np.arange(len(conditions))
@@ -83,6 +84,7 @@ def compare(ppd, npd, plot, min_difference):
 		plt.xticks(np.arange(len(differences)), conditions, rotation=90)
 #		fig2.tight_layout()
 		plt.show()
+	return weighted_conditions
 
 
 def check_for_multiple_symptoms (patients, symptoms_raw, plot):
@@ -110,6 +112,7 @@ def check_for_multiple_symptoms (patients, symptoms_raw, plot):
 		plt_labels = ["Presence", "Absence", "Undetermined"]
 		plt.pie(result, labels=plt_labels)
 		plt.show()
+	return result
 
 
 f = open ("./Files/COPEDICATClinicSympt_DATA_2020-12-17_1642.csv", 'r')
@@ -142,6 +145,10 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 #check_for_symptoms(patients_COVID_Positive, "Cough", True)
 positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-compare (positive_patients_data, negative_patients_data, True, 0)
-mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, "Fever,Cough", False)
-mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, "Fever,Cough", False)
+weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10)
+#generate_possible_combinations(weighted_conditions)
+mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, "Smell Alteration,Taste Alteration", True)
+mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, "Smell Alteration,Taste Alteration", True)
+print (mult_positive_patients_data)
+print (mult_negative_patients_data)
+print (str((mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))))

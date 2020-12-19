@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
-def check_for_symptoms (patients, symptoms):
+def check_for_symptoms (patients, symptoms, plot):
+	symptoms_data = []
 	for symptom in symptoms.split(','):
 		patient_with_symptom = 0
 		patient_without_symptom = 0
@@ -12,11 +14,52 @@ def check_for_symptoms (patients, symptoms):
 				patient_without_symptom += 1
 			else:
 				patient_undetermined += 1
-		plot_data = [patient_with_symptom, patient_without_symptom, patient_undetermined]
-		plot_labels = ["Positive", "Negative", "Undetermined"]
-		plt.pie (plot_data, labels=plot_labels)
-		plt.title (symptom)
-	plt.show()
+		data = [symptom, patient_with_symptom, patient_without_symptom, patient_undetermined]
+		symptoms_data.append(data)
+		if plot:
+			plot_labels = ["Positive", "Negative", "Undetermined"]
+			plt.pie (data, labels=plot_labels)
+			plt.title (symptom)
+	if plot:
+		plt.show()
+	return symptoms_data
+
+
+def compare(ppd, npd, plot):
+	normalized_ppd = []
+	normalized_npd = []
+	conditions = []
+	positive_ppd = []
+	positive_npd = []
+	negative_ppd = []
+	negative_npd = []
+	for value in ppd:
+		normalized_ppd.append([value[0], value[1]/(value[1]+value[2]), value[2]/(value[1]+value[2]), value[3]])
+		conditions.append(value[0])
+		positive_ppd.append(value[1]/(value[1]+value[2]))
+		negative_ppd.append(value[2]/(value[1]+value[2]))
+	for value in npd:
+		normalized_npd.append([value[0], value[1]/(value[1]+value[2]), value[2]/(value[1]+value[2]), value[3]])
+		positive_npd.append(value[1]/(value[1]+value[2]))
+		negative_npd.append(value[2]/(value[1]+value[2]))
+	if plot:
+		fig,ax = plt.subplots(2)
+		x = np.arange(len(conditions))
+		ax[0].bar(x, positive_ppd, width=0.35)
+		ax[0].bar(x+0.35, negative_ppd, width=0.35)
+		ax[0].set_ylim([0,1])
+		ax[1].bar(x, positive_npd, width=0.35)
+		ax[1].bar(x+0.35, negative_npd, width=0.35)
+		ax[1].set_ylim([0,1])
+
+		plt.setp(ax[1], xticks=x, xticklabels=conditions)
+		plt.setp(ax[1].get_xticklabels(), rotation=90)
+		plt.setp(ax[0], xticks=x, xticklabels=conditions)
+
+		for a in fig.get_axes():
+			a.label_outer()
+#		fig.tight_layout()
+		plt.show()
 
 
 f = open ("./Files/COPEDICATClinicSympt_DATA_2020-12-17_1642.csv", 'r')
@@ -31,7 +74,7 @@ patients_COVID_Negative = []
 for value in data:
 	if value.split(',')[31] == '1' and (value.split(',')[117] == '1' or value.split(',')[122] == '1'):
 		patients_COVID_Positive.append(value)
-	elif value.split(',')[31] == '1' and (value.split(',')[117] == '0' and value.split(',')[122] == '0'):
+	elif value.split(',')[31] == '1' and (value.split(',')[117] == '2' and value.split(',')[122] == '2'):
 		patients_COVID_Negative.append(value)
 
 symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alterated Respiratory Auscultation",
@@ -46,4 +89,7 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 		    ['2', '2', '2', '2', '2', '1', '2', '2', '2', '2', '2', '2', '0', '0', '2', '2', '2', '2', '2',
 		     '0', '0', '0', '0']]
 
-check_for_symptoms(patients_COVID_Positive, "Taste Alteration")
+#check_for_symptoms(patients_COVID_Negative, "Taste Alteration", True)
+positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
+negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
+compare (positive_patients_data, negative_patients_data, True)

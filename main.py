@@ -55,7 +55,7 @@ def compare(ppd, npd, plot, min_difference):
 			differences[i] = 0
 		if abs(differences[i]) >= min_difference/100:
 			weighted_conditions.append([conditions[i], differences[i]])
-			print (conditions[i] + " has a difference of " + str(differences[i]))
+#			print (conditions[i] + " has a difference of " + str(differences[i]))
 	if plot:
 		fig,ax = plt.subplots(2)
 		x = np.arange(len(conditions))
@@ -126,10 +126,10 @@ def generate_possible_combinations (conditions):
 			negative_conditions.append(condition[0])
 	for i in range(len(positive_conditions)):
 		for j in range(i+1, (len(positive_conditions))):
-			combinations.append(positive_conditions[i]+','+positive_conditions[j])
+			combinations.append([positive_conditions[i]+','+positive_conditions[j], 'c'])
 	for i in range(len(negative_conditions)):
 		for j in range(i+1, (len(negative_conditions))):
-			combinations.append(negative_conditions[i]+','+negative_conditions[j])
+			combinations.append([negative_conditions[i]+','+negative_conditions[j], 'o'])
 	return combinations
 
 
@@ -166,12 +166,25 @@ negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Coug
 weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10)
 combinations = generate_possible_combinations(weighted_conditions)
 #print (combinations)
+probabilities = []
 for combination in combinations:
-	mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, combination, False)
-	mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, combination, False)
-	if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_positive_patients_data[0] == 0:
-		x = (mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))
-		print (combination + ': ' + str(x/(x+1)))
-#print (mult_positive_patients_data)
-#print (mult_negative_patients_data)
-#print (str((mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))))
+	mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, combination[0], False)
+	mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, combination[0], False)
+	if combination[1] == 'c':
+		if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_negative_patients_data[0] == 0:
+			x = (mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))
+			probabilities.append([combination[0], x/(x+1), 'covid'])
+#			print (combination[0] + ' (covid): ' + str(x/(x+1)))
+		else:
+			if mult_negative_patients_data[0] == 0 and not (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0:
+				probabilities.append([combination[0], 1, 'covid'])
+#				print (combination[0] + ' (covid): 1')
+	if combination[1] == 'o':
+		if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_positive_patients_data[0] == 0:
+			x = (mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))/(mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))
+			probabilities.append([combination[0], x/(x+1), 'other'])
+#			print (combination[0] + ' (other): ' + str(x/(x+1)))
+		else:
+			if mult_positive_patients_data[0] == 0 and not (mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0:
+				probabilities.append([combination[0], 1, 'other'])
+#				print (combination[0] + ' (other): 1')

@@ -1,318 +1,106 @@
-Fever,Fatigue (Male): 0.5092891760904684
-Fever,Headache (Male): 0.6761119081779052
-Fever,Conjuntivitis (Male): 0.0
-Fever,Irritability (Male): 0.7351598173515982
-Fever,Neurologic Manifestations (Male): 0.0
-Fever,Taste Alteration (Male): 0.8949320148331273
-Fever,Smell Alteration (Male): 0.8092031425364759
-Fatigue,Headache (Male): 0.5992521436399973
-Fatigue,Conjuntivitis (Male): 0.0
-Fatigue,Irritability (Male): 1
-Fatigue,Neurologic Manifestations (Male): 0.0
-Fatigue,Taste Alteration (Male): 0.927605756650676
-Fatigue,Smell Alteration (Male): 0.8949367088607595
-Headache,Conjuntivitis (Male): 0.0
-Headache,Irritability (Male): 1
-Headache,Neurologic Manifestations (Male): 1
-Headache,Taste Alteration (Male): 0.8354735152487961
-Headache,Smell Alteration (Male): 0.835076427996782
-Conjuntivitis,Irritability (Male): 1
-Conjuntivitis,Neurologic Manifestations (Male): 1
-Conjuntivitis,Taste Alteration (Male): 1
-Conjuntivitis,Smell Alteration (Male): 1
-Irritability,Neurologic Manifestations (Male): 1
-Irritability,Taste Alteration (Male): 1
-Irritability,Smell Alteration (Male): 1
-Neurologic Manifestations,Taste Alteration (Male): 1
-Neurologic Manifestations,Smell Alteration (Male): 1
-Taste Alteration,Smell Alteration (Male): 0.8092031425364759
-Cough,Dysphonia (Male): 0.495114006514658
-Cough,Dyspnea (Male): 0.28185328185328185
-Cough,Tachypnea (Male): 0.18621973929236502
-Cough,Alterated Respiratory Auscultation (Male): 0
-Cough,Odynophagia (Male): 0.4277952530740635
-Cough,Nasal Congestion (Male): 0.47912777238443727
-Cough,Retro-ocular Pain (Male): 0
-Cough,Gastrointestinal Symptoms (Male): 0.47041678810842313
-Cough,Skin Signs (Male): 0
-Cough,Lymphadenopathy (Male): 0
-Cough,Hemorrhagies (Male): 0
-Cough,Shock (Male): 0
-Dysphonia,Dyspnea (Male): 0.7739426349052018
-Dysphonia,Tachypnea (Male): 0.8114754098360655
-Dysphonia,Alterated Respiratory Auscultation (Male): 0
-Dysphonia,Odynophagia (Male): 0
-Dysphonia,Nasal Congestion (Male): 0.32845058799257276
-Dysphonia,Retro-ocular Pain (Male): 0
-Dysphonia,Gastrointestinal Symptoms (Male): 0.4415011037527593
-Dysphonia,Skin Signs (Male): 0
-Dysphonia,Lymphadenopathy (Male): 0
-Dysphonia,Hemorrhagies (Male): 0
-Dysphonia,Shock (Male): 0
-Dyspnea,Tachypnea (Male): 0.19860627177700352
-Dyspnea,Alterated Respiratory Auscultation (Male): 0
-Dyspnea,Odynophagia (Male): 0.5505535055350553
-Dyspnea,Nasal Congestion (Male): 0.4388370817334064
-Dyspnea,Retro-ocular Pain (Male): 0
-Dyspnea,Gastrointestinal Symptoms (Male): 0.6862745098039216
-Dyspnea,Skin Signs (Male): 0
-Dyspnea,Lymphadenopathy (Male): 0
-Dyspnea,Hemorrhagies (Male): 0
-Dyspnea,Shock (Male): 0
-Tachypnea,Alterated Respiratory Auscultation (Male): 0
-Tachypnea,Odynophagia (Male): 0
-Tachypnea,Nasal Congestion (Male): 0
-Tachypnea,Retro-ocular Pain (Male): 0
-Tachypnea,Gastrointestinal Symptoms (Male): 0
-Tachypnea,Skin Signs (Male): 0
-Tachypnea,Lymphadenopathy (Male): 0
-Tachypnea,Hemorrhagies (Male): 0
-Tachypnea,Shock (Male): 0
-Alterated Respiratory Auscultation,Odynophagia (Male): 0
-Alterated Respiratory Auscultation,Nasal Congestion (Male): 0
-Alterated Respiratory Auscultation,Retro-ocular Pain (Male): 0
-Alterated Respiratory Auscultation,Gastrointestinal Symptoms (Male): 0
-Alterated Respiratory Auscultation,Skin Signs (Male): 0
-Alterated Respiratory Auscultation,Lymphadenopathy (Male): 0
-Alterated Respiratory Auscultation,Hemorrhagies (Male): 0
-Alterated Respiratory Auscultation,Shock (Male): 0
-Odynophagia,Nasal Congestion (Male): 0.433790837038469
-Odynophagia,Retro-ocular Pain (Male): 0
-Odynophagia,Gastrointestinal Symptoms (Male): 0.5249895002099958
-Odynophagia,Skin Signs (Male): 0
-Odynophagia,Lymphadenopathy (Male): 0
-Odynophagia,Hemorrhagies (Male): 0
-Odynophagia,Shock (Male): 0
-Nasal Congestion,Retro-ocular Pain (Male): 0
-Nasal Congestion,Gastrointestinal Symptoms (Male): 0.5189775367931835
-Nasal Congestion,Skin Signs (Male): 0.5211450878334418
-Nasal Congestion,Lymphadenopathy (Male): 0
-Nasal Congestion,Hemorrhagies (Male): 0
-Nasal Congestion,Shock (Male): 0
-Retro-ocular Pain,Gastrointestinal Symptoms (Male): 0
-Retro-ocular Pain,Skin Signs (Male): 0
-Retro-ocular Pain,Lymphadenopathy (Male): 0
-Retro-ocular Pain,Hemorrhagies (Male): 0
-Retro-ocular Pain,Shock (Male): 0
-Gastrointestinal Symptoms,Skin Signs (Male): 0.5585585585585586
-Gastrointestinal Symptoms,Lymphadenopathy (Male): 0
-Gastrointestinal Symptoms,Hemorrhagies (Male): 0
-Gastrointestinal Symptoms,Shock (Male): 0
-Skin Signs,Lymphadenopathy (Male): 0
-Skin Signs,Hemorrhagies (Male): 0
-Skin Signs,Shock (Male): 0
-Lymphadenopathy,Hemorrhagies (Male): 0
-Lymphadenopathy,Shock (Male): 0
-Hemorrhagies,Shock (Male): 0
-Fever,Fatigue (Female): 0.703771582907302
-Fever,Headache (Female): 0.7111263333007144
-Fever,Conjuntivitis (Female): 0.5406824146981627
-Fever,Irritability (Female): 0.638888888888889
-Fever,Neurologic Manifestations (Female): 0.0
-Fever,Taste Alteration (Female): 0.958600583090379
-Fever,Smell Alteration (Female): 0.9817948717948718
-Fatigue,Headache (Female): 0.7463212435233161
-Fatigue,Conjuntivitis (Female): 0.0
-Fatigue,Irritability (Female): 0.6402877697841726
-Fatigue,Neurologic Manifestations (Female): 0.0
-Fatigue,Taste Alteration (Female): 0.9550660792951542
-Fatigue,Smell Alteration (Female): 0.9728271728271728
-Headache,Conjuntivitis (Female): 0.8430629264594389
-Headache,Irritability (Female): 1
-Headache,Neurologic Manifestations (Female): 1
-Headache,Taste Alteration (Female): 0.9146250927988122
-Headache,Smell Alteration (Female): 0.9683050068902159
-Conjuntivitis,Irritability (Female): 1
-Conjuntivitis,Neurologic Manifestations (Female): 1
-Conjuntivitis,Taste Alteration (Female): 1
-Conjuntivitis,Smell Alteration (Female): 1
-Irritability,Neurologic Manifestations (Female): 0.0
-Irritability,Taste Alteration (Female): 1
-Irritability,Smell Alteration (Female): 1
-Neurologic Manifestations,Taste Alteration (Female): 1
-Neurologic Manifestations,Smell Alteration (Female): 1
-Taste Alteration,Smell Alteration (Female): 0.9685144124168514
-Cough,Dysphonia (Female): 0.42807262569832394
-Cough,Dyspnea (Female): 0.4991974317817014
-Cough,Tachypnea (Female): 0.3151207115628971
-Cough,Alterated Respiratory Auscultation (Female): 0.3531827515400411
-Cough,Odynophagia (Female): 0.5383057711778603
-Cough,Nasal Congestion (Female): 0.44004272259442667
-Cough,Retro-ocular Pain (Female): 0
-Cough,Gastrointestinal Symptoms (Female): 0.5231447465099193
-Cough,Skin Signs (Female): 0
-Cough,Lymphadenopathy (Female): 0.8928571428571429
-Cough,Hemorrhagies (Female): 0
-Cough,Shock (Female): 0
-Dysphonia,Dyspnea (Female): 0
-Dysphonia,Tachypnea (Female): 0
-Dysphonia,Alterated Respiratory Auscultation (Female): 0
-Dysphonia,Odynophagia (Female): 0.3341121495327103
-Dysphonia,Nasal Congestion (Female): 0.4304964539007091
-Dysphonia,Retro-ocular Pain (Female): 0
-Dysphonia,Gastrointestinal Symptoms (Female): 0
-Dysphonia,Skin Signs (Female): 0
-Dysphonia,Lymphadenopathy (Female): 0
-Dysphonia,Hemorrhagies (Female): 0
-Dysphonia,Shock (Female): 0
-Dyspnea,Tachypnea (Female): 0.3340540540540541
-Dyspnea,Alterated Respiratory Auscultation (Female): 0.44930069930069927
-Dyspnea,Odynophagia (Female): 0.7403928266438942
-Dyspnea,Nasal Congestion (Female): 0.5133333333333333
-Dyspnea,Retro-ocular Pain (Female): 0
-Dyspnea,Gastrointestinal Symptoms (Female): 0.7633681622618317
-Dyspnea,Skin Signs (Female): 0
-Dyspnea,Lymphadenopathy (Female): 0
-Dyspnea,Hemorrhagies (Female): 0
-Dyspnea,Shock (Female): 0
-Tachypnea,Alterated Respiratory Auscultation (Female): 0.3383905013192612
-Tachypnea,Odynophagia (Female): 0
-Tachypnea,Nasal Congestion (Female): 0.40222731739272843
-Tachypnea,Retro-ocular Pain (Female): 0
-Tachypnea,Gastrointestinal Symptoms (Female): 0.730814639905549
-Tachypnea,Skin Signs (Female): 0
-Tachypnea,Lymphadenopathy (Female): 0
-Tachypnea,Hemorrhagies (Female): 0
-Tachypnea,Shock (Female): 0
-Alterated Respiratory Auscultation,Odynophagia (Female): 0.5427927927927928
-Alterated Respiratory Auscultation,Nasal Congestion (Female): 0.27234042553191484
-Alterated Respiratory Auscultation,Retro-ocular Pain (Female): 0
-Alterated Respiratory Auscultation,Gastrointestinal Symptoms (Female): 0.5926352128883774
-Alterated Respiratory Auscultation,Skin Signs (Female): 0
-Alterated Respiratory Auscultation,Lymphadenopathy (Female): 0
-Alterated Respiratory Auscultation,Hemorrhagies (Female): 0
-Alterated Respiratory Auscultation,Shock (Female): 0
-Odynophagia,Nasal Congestion (Female): 0.47438685967149175
-Odynophagia,Retro-ocular Pain (Female): 0
-Odynophagia,Gastrointestinal Symptoms (Female): 0.2836149889786921
-Odynophagia,Skin Signs (Female): 0
-Odynophagia,Lymphadenopathy (Female): 0.47432024169184295
-Odynophagia,Hemorrhagies (Female): 0
-Odynophagia,Shock (Female): 0
-Nasal Congestion,Retro-ocular Pain (Female): 0
-Nasal Congestion,Gastrointestinal Symptoms (Female): 0.49478748997594224
-Nasal Congestion,Skin Signs (Female): 0
-Nasal Congestion,Lymphadenopathy (Female): 0.6391752577319587
-Nasal Congestion,Hemorrhagies (Female): 0
-Nasal Congestion,Shock (Female): 0
-Retro-ocular Pain,Gastrointestinal Symptoms (Female): 0
-Retro-ocular Pain,Skin Signs (Female): 0
-Retro-ocular Pain,Lymphadenopathy (Female): 0
-Retro-ocular Pain,Hemorrhagies (Female): 0
-Retro-ocular Pain,Shock (Female): 0
-Gastrointestinal Symptoms,Skin Signs (Female): 0
-Gastrointestinal Symptoms,Lymphadenopathy (Female): 0
-Gastrointestinal Symptoms,Hemorrhagies (Female): 0
-Gastrointestinal Symptoms,Shock (Female): 0
-Skin Signs,Lymphadenopathy (Female): 0
-Skin Signs,Hemorrhagies (Female): 0
-Skin Signs,Shock (Female): 0
-Lymphadenopathy,Hemorrhagies (Female): 0
-Lymphadenopathy,Shock (Female): 0
-Hemorrhagies,Shock (Female): 0
-Fever,Fatigue (Undetermined): Cannot be computed
-Fever,Headache (Undetermined): Cannot be computed
-Fever,Conjuntivitis (Undetermined): Cannot be computed
-Fever,Irritability (Undetermined): Cannot be computed
-Fever,Neurologic Manifestations (Undetermined): Cannot be computed
-Fever,Taste Alteration (Undetermined): Cannot be computed
-Fever,Smell Alteration (Undetermined): Cannot be computed
-Fatigue,Headache (Undetermined): Cannot be computed
-Fatigue,Conjuntivitis (Undetermined): Cannot be computed
-Fatigue,Irritability (Undetermined): Cannot be computed
-Fatigue,Neurologic Manifestations (Undetermined): Cannot be computed
-Fatigue,Taste Alteration (Undetermined): Cannot be computed
-Fatigue,Smell Alteration (Undetermined): Cannot be computed
-Headache,Conjuntivitis (Undetermined): Cannot be computed
-Headache,Irritability (Undetermined): Cannot be computed
-Headache,Neurologic Manifestations (Undetermined): Cannot be computed
-Headache,Taste Alteration (Undetermined): Cannot be computed
-Headache,Smell Alteration (Undetermined): Cannot be computed
-Conjuntivitis,Irritability (Undetermined): Cannot be computed
-Conjuntivitis,Neurologic Manifestations (Undetermined): Cannot be computed
-Conjuntivitis,Taste Alteration (Undetermined): Cannot be computed
-Conjuntivitis,Smell Alteration (Undetermined): Cannot be computed
-Irritability,Neurologic Manifestations (Undetermined): Cannot be computed
-Irritability,Taste Alteration (Undetermined): Cannot be computed
-Irritability,Smell Alteration (Undetermined): Cannot be computed
-Neurologic Manifestations,Taste Alteration (Undetermined): Cannot be computed
-Neurologic Manifestations,Smell Alteration (Undetermined): Cannot be computed
-Taste Alteration,Smell Alteration (Undetermined): Cannot be computed
-Cough,Dysphonia (Undetermined): Cannot be computed
-Cough,Dyspnea (Undetermined): Cannot be computed
-Cough,Tachypnea (Undetermined): Cannot be computed
-Cough,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
-Cough,Odynophagia (Undetermined): Cannot be computed
-Cough,Nasal Congestion (Undetermined): Cannot be computed
-Cough,Retro-ocular Pain (Undetermined): Cannot be computed
-Cough,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Cough,Skin Signs (Undetermined): Cannot be computed
-Cough,Lymphadenopathy (Undetermined): Cannot be computed
-Cough,Hemorrhagies (Undetermined): Cannot be computed
-Cough,Shock (Undetermined): Cannot be computed
-Dysphonia,Dyspnea (Undetermined): Cannot be computed
-Dysphonia,Tachypnea (Undetermined): Cannot be computed
-Dysphonia,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
-Dysphonia,Odynophagia (Undetermined): Cannot be computed
-Dysphonia,Nasal Congestion (Undetermined): Cannot be computed
-Dysphonia,Retro-ocular Pain (Undetermined): Cannot be computed
-Dysphonia,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Dysphonia,Skin Signs (Undetermined): Cannot be computed
-Dysphonia,Lymphadenopathy (Undetermined): Cannot be computed
-Dysphonia,Hemorrhagies (Undetermined): Cannot be computed
-Dysphonia,Shock (Undetermined): Cannot be computed
-Dyspnea,Tachypnea (Undetermined): Cannot be computed
-Dyspnea,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
-Dyspnea,Odynophagia (Undetermined): Cannot be computed
-Dyspnea,Nasal Congestion (Undetermined): Cannot be computed
-Dyspnea,Retro-ocular Pain (Undetermined): Cannot be computed
-Dyspnea,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Dyspnea,Skin Signs (Undetermined): Cannot be computed
-Dyspnea,Lymphadenopathy (Undetermined): Cannot be computed
-Dyspnea,Hemorrhagies (Undetermined): Cannot be computed
-Dyspnea,Shock (Undetermined): Cannot be computed
-Tachypnea,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
-Tachypnea,Odynophagia (Undetermined): Cannot be computed
-Tachypnea,Nasal Congestion (Undetermined): Cannot be computed
-Tachypnea,Retro-ocular Pain (Undetermined): Cannot be computed
-Tachypnea,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Tachypnea,Skin Signs (Undetermined): Cannot be computed
-Tachypnea,Lymphadenopathy (Undetermined): Cannot be computed
-Tachypnea,Hemorrhagies (Undetermined): Cannot be computed
-Tachypnea,Shock (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Odynophagia (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Nasal Congestion (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Retro-ocular Pain (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Skin Signs (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Lymphadenopathy (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Hemorrhagies (Undetermined): Cannot be computed
-Alterated Respiratory Auscultation,Shock (Undetermined): Cannot be computed
-Odynophagia,Nasal Congestion (Undetermined): Cannot be computed
-Odynophagia,Retro-ocular Pain (Undetermined): Cannot be computed
-Odynophagia,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Odynophagia,Skin Signs (Undetermined): Cannot be computed
-Odynophagia,Lymphadenopathy (Undetermined): Cannot be computed
-Odynophagia,Hemorrhagies (Undetermined): Cannot be computed
-Odynophagia,Shock (Undetermined): Cannot be computed
-Nasal Congestion,Retro-ocular Pain (Undetermined): Cannot be computed
-Nasal Congestion,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Nasal Congestion,Skin Signs (Undetermined): Cannot be computed
-Nasal Congestion,Lymphadenopathy (Undetermined): Cannot be computed
-Nasal Congestion,Hemorrhagies (Undetermined): Cannot be computed
-Nasal Congestion,Shock (Undetermined): Cannot be computed
-Retro-ocular Pain,Gastrointestinal Symptoms (Undetermined): Cannot be computed
-Retro-ocular Pain,Skin Signs (Undetermined): Cannot be computed
-Retro-ocular Pain,Lymphadenopathy (Undetermined): Cannot be computed
-Retro-ocular Pain,Hemorrhagies (Undetermined): Cannot be computed
-Retro-ocular Pain,Shock (Undetermined): Cannot be computed
-Gastrointestinal Symptoms,Skin Signs (Undetermined): Cannot be computed
-Gastrointestinal Symptoms,Lymphadenopathy (Undetermined): Cannot be computed
-Gastrointestinal Symptoms,Hemorrhagies (Undetermined): Cannot be computed
-Gastrointestinal Symptoms,Shock (Undetermined): Cannot be computed
-Skin Signs,Lymphadenopathy (Undetermined): Cannot be computed
-Skin Signs,Hemorrhagies (Undetermined): Cannot be computed
-Skin Signs,Shock (Undetermined): Cannot be computed
-Lymphadenopathy,Hemorrhagies (Undetermined): Cannot be computed
-Lymphadenopathy,Shock (Undetermined): Cannot be computed
-Hemorrhagies,Shock (Undetermined): Cannot be computed
+Fever,Fatigue: 0.6208023630244777
+Fever,Headache: 0.692428760768721
+Fever,Conjuntivitis: 0.3473375671714704
+Fever,Irritability: 0.6996879875195008
+Fever,Neurologic Manifestations: 0.0
+Fever,Taste Alteration: 0.9363057324840764
+Fever,Smell Alteration: 0.9361179361179361
+Fatigue,Headache: 0.6907512437117654
+Fatigue,Conjuntivitis: 0.0
+Fatigue,Irritability: 0.6442953020134228
+Fatigue,Neurologic Manifestations: 0.0
+Fatigue,Taste Alteration: 0.9480671344063832
+Fatigue,Smell Alteration: 0.952078705172961
+Headache,Conjuntivitis: 0.7347876004592423
+Headache,Irritability: 1
+Headache,Neurologic Manifestations: 1
+Headache,Taste Alteration: 0.8901818181818182
+Headache,Smell Alteration: 0.9270430701270016
+Conjuntivitis,Irritability: 1
+Conjuntivitis,Neurologic Manifestations: 1
+Conjuntivitis,Taste Alteration: 1
+Conjuntivitis,Smell Alteration: 1
+Irritability,Neurologic Manifestations: 0.0
+Irritability,Taste Alteration: 1
+Irritability,Smell Alteration: 1
+Neurologic Manifestations,Taste Alteration: 1
+Neurologic Manifestations,Smell Alteration: 1
+Taste Alteration,Smell Alteration: 0.9420935412026726
+Cough,Dysphonia: 0.4695912263210369
+Cough,Dyspnea: 0.3971611466740885
+Cough,Tachypnea: 0.2569415165933867
+Cough,Alterated Respiratory Auscultation: 0.2022623670437278
+Cough,Odynophagia: 0.4844244225055113
+Cough,Nasal Congestion: 0.461849370271018
+Cough,Retro-ocular Pain: 0
+Cough,Gastrointestinal Symptoms: 0.49556603365488605
+Cough,Skin Signs: 0
+Cough,Lymphadenopathy: 0.7554240631163708
+Cough,Hemorrhagies: 0
+Cough,Shock: 0
+Dysphonia,Dyspnea: 0.6731963688485427
+Dysphonia,Tachypnea: 0.7345549738219895
+Dysphonia,Alterated Respiratory Auscultation: 0
+Dysphonia,Odynophagia: 0.19680453934597586
+Dysphonia,Nasal Congestion: 0.37262962471820715
+Dysphonia,Retro-ocular Pain: 0
+Dysphonia,Gastrointestinal Symptoms: 0.3580653329956951
+Dysphonia,Skin Signs: 0
+Dysphonia,Lymphadenopathy: 0
+Dysphonia,Hemorrhagies: 0
+Dysphonia,Shock: 0
+Dyspnea,Tachypnea: 0.27309494767927067
+Dyspnea,Alterated Respiratory Auscultation: 0.2767018439058332
+Dyspnea,Odynophagia: 0.6844754161827333
+Dyspnea,Nasal Congestion: 0.4734557595993323
+Dyspnea,Retro-ocular Pain: 0
+Dyspnea,Gastrointestinal Symptoms: 0.7222151978758377
+Dyspnea,Skin Signs: 0
+Dyspnea,Lymphadenopathy: 0
+Dyspnea,Hemorrhagies: 0
+Dyspnea,Shock: 0
+Tachypnea,Alterated Respiratory Auscultation: 0.2107496463932107
+Tachypnea,Odynophagia: 0
+Tachypnea,Nasal Congestion: 0.2514011208967174
+Tachypnea,Retro-ocular Pain: 0
+Tachypnea,Gastrointestinal Symptoms: 0.5155910079767948
+Tachypnea,Skin Signs: 0
+Tachypnea,Lymphadenopathy: 0
+Tachypnea,Hemorrhagies: 0
+Tachypnea,Shock: 0
+Alterated Respiratory Auscultation,Odynophagia: 0.3712021136063408
+Alterated Respiratory Auscultation,Nasal Congestion: 0.1531432983720482
+Alterated Respiratory Auscultation,Retro-ocular Pain: 0
+Alterated Respiratory Auscultation,Gastrointestinal Symptoms: 0.4261302954788181
+Alterated Respiratory Auscultation,Skin Signs: 0
+Alterated Respiratory Auscultation,Lymphadenopathy: 0
+Alterated Respiratory Auscultation,Hemorrhagies: 0
+Alterated Respiratory Auscultation,Shock: 0
+Odynophagia,Nasal Congestion: 0.45548298384324504
+Odynophagia,Retro-ocular Pain: 0
+Odynophagia,Gastrointestinal Symptoms: 0.42440668701316453
+Odynophagia,Skin Signs: 0
+Odynophagia,Lymphadenopathy: 0.3531118993872945
+Odynophagia,Hemorrhagies: 0
+Odynophagia,Shock: 0
+Nasal Congestion,Retro-ocular Pain: 0
+Nasal Congestion,Gastrointestinal Symptoms: 0.5084362221604669
+Nasal Congestion,Skin Signs: 0.38307650716409836
+Nasal Congestion,Lymphadenopathy: 0.6135265700483092
+Nasal Congestion,Hemorrhagies: 0
+Nasal Congestion,Shock: 0
+Retro-ocular Pain,Gastrointestinal Symptoms: 0
+Retro-ocular Pain,Skin Signs: 0
+Retro-ocular Pain,Lymphadenopathy: 0
+Retro-ocular Pain,Hemorrhagies: 0
+Retro-ocular Pain,Shock: 0
+Gastrointestinal Symptoms,Skin Signs: 0.3966092273485269
+Gastrointestinal Symptoms,Lymphadenopathy: 0
+Gastrointestinal Symptoms,Hemorrhagies: 0
+Gastrointestinal Symptoms,Shock: 0
+Skin Signs,Lymphadenopathy: 0
+Skin Signs,Hemorrhagies: 0
+Skin Signs,Shock: 0
+Lymphadenopathy,Hemorrhagies: 0
+Lymphadenopathy,Shock: 0
+Hemorrhagies,Shock: 0

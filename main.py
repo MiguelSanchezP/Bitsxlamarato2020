@@ -48,14 +48,11 @@ def check_for_symptoms (patients, symptoms, plot, sex):
 				plot_data = [positive_males, positive_females, patient_with_symptom-positive_males-positive_females, negative_males, negative_females, patient_without_symptom-negative_males-negative_females, undetermined_males, undetermined_females, patient_undetermined-undetermined_males-undetermined_females]
 				colors = ['#e0f8f5', '#beede5', '#a7d9c9', '#f8b195', '#ffbd77', '#ffa13e', '#a8adb4', '#c3c8cd', '#d2d6d9']
 				legend = ["Positive Male (" + str(round(positive_males/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Positive Female (" + str(round(positive_females/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Positive Undetermined (" + str(round((patient_with_symptom-positive_males-positive_females)/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative Male (" + str(round(negative_males/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative Female (" + str(round(negative_females/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative Undetermined (" + str(round((patient_without_symptom-negative_males-negative_females)/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined Male (" + str(round(undetermined_males/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined Female (" + str(round(undetermined_females/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined Undetermined (" + str(round((patient_undetermined-undetermined_males-undetermined_females)/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)"]
-
-			#plot_labels = ["Positive Male", "Positive Female", "Positive Undetermined", "Negative Male", "Negative Female", "Negative Undetermined", "Undetermined Male", "Undetermined Female", "Undetermined Undetermined"]
 			plt.pie (plot_data, colors=colors)
 			plt.title (symptom)
 			plt.legend(legend, loc='lower left', bbox_to_anchor=(-.1, 0), fontsize='x-small')
 			plt.tight_layout(h_pad=1)
 			figure_count += 1
-
 	if plot:
 		plt.show()
 	return symptoms_data
@@ -122,7 +119,7 @@ def compare(ppd, npd, plot, min_difference, sex):
 		legend = []
 		if not sex:
 			ax[1].bar(x, positive_npd, width=0.35)
-			legend.append ("Positives")
+			legend.append ("Positive")
 		if sex:
 			bar_males = ax[1].bar(x, positive_npd_males, width=0.35)
 			legend.append ("Male")
@@ -237,7 +234,6 @@ positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Coug
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False, True)
 weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 0, True)
 combinations = generate_possible_combinations(weighted_conditions)
-#print (combinations)
 probabilities = []
 genders = [['1', '2', '3'],["Male", "Female", "Undetermined"]]
 for gender in genders[0]:

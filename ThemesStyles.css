@@ -46,6 +46,7 @@ footer{
     background-color: #eeeeec;
     overflow: hidden;
     border-radius: 5px;
+    margin-top: 7px;
 }
     footer p{
         color: #8c8c8c;
@@ -57,7 +58,7 @@ main{
 }
 
     main .content{
-        width: 850px;
+        width: 900px;
         height: 610px;
         font: gray;
         font-family: sans-serif;
@@ -71,25 +72,31 @@ main{
         width: 220px;
         margin: 10px;
         margin-left: 20px;
+        border-radius: 7px;
     }
         main .aside ul.side-menu{
             list-style: none;
             padding: 10px 20px 23px 0;
             margin-right: 0px;
             border-radius: 7px;
-            margin-top: 15px;
+            margin-top: 10px;
             height: 600px;
         }
         
         main .aside ul.side-menu li{
             margin: 7px 0;
-            padding-left: 30px;
+            padding-left: 20px;
+            padding-top: 9px;
+            /*list-style-type: circle;*/
         }
         main .aside ul.side-menu li.side-menu-title{
             color: #5a5a5a;
             font-size: 16px;
             margin-top: 20px;
-            padding-left: 15px;
+            padding-left: 8%;
+            padding-bottom: 5%;
+            padding-top: 15%;
+
             /* font-style: italic; */
         }
             body.light{
@@ -113,13 +120,14 @@ main{
                 }
 
                 a{ 
-                    color: #29323c;
+                    color: gray;
+                    text-decoration: none;
+                    font-size: small;
                 }
 
                 footer{
                     background-color:white;
                     overflow: hidden;
-                    margin-top: 7px;
                 }
                     footer p{
                         color: #485563;
@@ -130,7 +138,7 @@ main{
             }
 
             body{
-                background: linear-gradient(#343d53,#757e97);
+                background: linear-gradient(#757e97,#343d53);
             }
 
             body.dark main div.container{

@@ -210,3 +210,109 @@ Skin Signs,Shock (Female): 0
 Lymphadenopathy,Hemorrhagies (Female): 0
 Lymphadenopathy,Shock (Female): 0
 Hemorrhagies,Shock (Female): 0
+Fever,Fatigue (Undetermined): Cannot be computed
+Fever,Headache (Undetermined): Cannot be computed
+Fever,Conjuntivitis (Undetermined): Cannot be computed
+Fever,Irritability (Undetermined): Cannot be computed
+Fever,Neurologic Manifestations (Undetermined): Cannot be computed
+Fever,Taste Alteration (Undetermined): Cannot be computed
+Fever,Smell Alteration (Undetermined): Cannot be computed
+Fatigue,Headache (Undetermined): Cannot be computed
+Fatigue,Conjuntivitis (Undetermined): Cannot be computed
+Fatigue,Irritability (Undetermined): Cannot be computed
+Fatigue,Neurologic Manifestations (Undetermined): Cannot be computed
+Fatigue,Taste Alteration (Undetermined): Cannot be computed
+Fatigue,Smell Alteration (Undetermined): Cannot be computed
+Headache,Conjuntivitis (Undetermined): Cannot be computed
+Headache,Irritability (Undetermined): Cannot be computed
+Headache,Neurologic Manifestations (Undetermined): Cannot be computed
+Headache,Taste Alteration (Undetermined): Cannot be computed
+Headache,Smell Alteration (Undetermined): Cannot be computed
+Conjuntivitis,Irritability (Undetermined): Cannot be computed
+Conjuntivitis,Neurologic Manifestations (Undetermined): Cannot be computed
+Conjuntivitis,Taste Alteration (Undetermined): Cannot be computed
+Conjuntivitis,Smell Alteration (Undetermined): Cannot be computed
+Irritability,Neurologic Manifestations (Undetermined): Cannot be computed
+Irritability,Taste Alteration (Undetermined): Cannot be computed
+Irritability,Smell Alteration (Undetermined): Cannot be computed
+Neurologic Manifestations,Taste Alteration (Undetermined): Cannot be computed
+Neurologic Manifestations,Smell Alteration (Undetermined): Cannot be computed
+Taste Alteration,Smell Alteration (Undetermined): Cannot be computed
+Cough,Dysphonia (Undetermined): Cannot be computed
+Cough,Dyspnea (Undetermined): Cannot be computed
+Cough,Tachypnea (Undetermined): Cannot be computed
+Cough,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
+Cough,Odynophagia (Undetermined): Cannot be computed
+Cough,Nasal Congestion (Undetermined): Cannot be computed
+Cough,Retro-ocular Pain (Undetermined): Cannot be computed
+Cough,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Cough,Skin Signs (Undetermined): Cannot be computed
+Cough,Lymphadenopathy (Undetermined): Cannot be computed
+Cough,Hemorrhagies (Undetermined): Cannot be computed
+Cough,Shock (Undetermined): Cannot be computed
+Dysphonia,Dyspnea (Undetermined): Cannot be computed
+Dysphonia,Tachypnea (Undetermined): Cannot be computed
+Dysphonia,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
+Dysphonia,Odynophagia (Undetermined): Cannot be computed
+Dysphonia,Nasal Congestion (Undetermined): Cannot be computed
+Dysphonia,Retro-ocular Pain (Undetermined): Cannot be computed
+Dysphonia,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Dysphonia,Skin Signs (Undetermined): Cannot be computed
+Dysphonia,Lymphadenopathy (Undetermined): Cannot be computed
+Dysphonia,Hemorrhagies (Undetermined): Cannot be computed
+Dysphonia,Shock (Undetermined): Cannot be computed
+Dyspnea,Tachypnea (Undetermined): Cannot be computed
+Dyspnea,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
+Dyspnea,Odynophagia (Undetermined): Cannot be computed
+Dyspnea,Nasal Congestion (Undetermined): Cannot be computed
+Dyspnea,Retro-ocular Pain (Undetermined): Cannot be computed
+Dyspnea,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Dyspnea,Skin Signs (Undetermined): Cannot be computed
+Dyspnea,Lymphadenopathy (Undetermined): Cannot be computed
+Dyspnea,Hemorrhagies (Undetermined): Cannot be computed
+Dyspnea,Shock (Undetermined): Cannot be computed
+Tachypnea,Alterated Respiratory Auscultation (Undetermined): Cannot be computed
+Tachypnea,Odynophagia (Undetermined): Cannot be computed
+Tachypnea,Nasal Congestion (Undetermined): Cannot be computed
+Tachypnea,Retro-ocular Pain (Undetermined): Cannot be computed
+Tachypnea,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Tachypnea,Skin Signs (Undetermined): Cannot be computed
+Tachypnea,Lymphadenopathy (Undetermined): Cannot be computed
+Tachypnea,Hemorrhagies (Undetermined): Cannot be computed
+Tachypnea,Shock (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Odynophagia (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Nasal Congestion (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Retro-ocular Pain (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Skin Signs (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Lymphadenopathy (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Hemorrhagies (Undetermined): Cannot be computed
+Alterated Respiratory Auscultation,Shock (Undetermined): Cannot be computed
+Odynophagia,Nasal Congestion (Undetermined): Cannot be computed
+Odynophagia,Retro-ocular Pain (Undetermined): Cannot be computed
+Odynophagia,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Odynophagia,Skin Signs (Undetermined): Cannot be computed
+Odynophagia,Lymphadenopathy (Undetermined): Cannot be computed
+Odynophagia,Hemorrhagies (Undetermined): Cannot be computed
+Odynophagia,Shock (Undetermined): Cannot be computed
+Nasal Congestion,Retro-ocular Pain (Undetermined): Cannot be computed
+Nasal Congestion,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Nasal Congestion,Skin Signs (Undetermined): Cannot be computed
+Nasal Congestion,Lymphadenopathy (Undetermined): Cannot be computed
+Nasal Congestion,Hemorrhagies (Undetermined): Cannot be computed
+Nasal Congestion,Shock (Undetermined): Cannot be computed
+Retro-ocular Pain,Gastrointestinal Symptoms (Undetermined): Cannot be computed
+Retro-ocular Pain,Skin Signs (Undetermined): Cannot be computed
+Retro-ocular Pain,Lymphadenopathy (Undetermined): Cannot be computed
+Retro-ocular Pain,Hemorrhagies (Undetermined): Cannot be computed
+Retro-ocular Pain,Shock (Undetermined): Cannot be computed
+Gastrointestinal Symptoms,Skin Signs (Undetermined): Cannot be computed
+Gastrointestinal Symptoms,Lymphadenopathy (Undetermined): Cannot be computed
+Gastrointestinal Symptoms,Hemorrhagies (Undetermined): Cannot be computed
+Gastrointestinal Symptoms,Shock (Undetermined): Cannot be computed
+Skin Signs,Lymphadenopathy (Undetermined): Cannot be computed
+Skin Signs,Hemorrhagies (Undetermined): Cannot be computed
+Skin Signs,Shock (Undetermined): Cannot be computed
+Lymphadenopathy,Hemorrhagies (Undetermined): Cannot be computed
+Lymphadenopathy,Shock (Undetermined): Cannot be computed
+Hemorrhagies,Shock (Undetermined): Cannot be computed

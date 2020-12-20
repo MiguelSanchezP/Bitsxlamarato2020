@@ -253,6 +253,9 @@ for gender in genders[0]:
 				if mult_negative_patients_data[0] == 0 and not (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0:
 					probabilities.append([combination[0], 1, gender])
 #					print (combination[0] + ': 1')
+				if mult_negative_patients_data[0] == 0 and (mult_positive_patients_data[0]+mult_negative_patients_data[1]) == 0:
+					probabilities.append([combination[0], 'Cannot be computed', gender])
+#					print (combination[0] + ': Cannot be computed')
 		if combination[1] == 'o':
 			if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_positive_patients_data[0] == 0:
 				x = (mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))/(mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))
@@ -262,6 +265,9 @@ for gender in genders[0]:
 				if mult_positive_patients_data[0] == 0 and not (mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0:
 					probabilities.append([combination[0], 0, gender])
 #					print (combination[0] + ': 0')
+				if mult_negative_patients_data[0] == 0 and (mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0:
+					probabilities.append([combination[0], 'Cannot be computed', gender])
+#					print (combination[0] + ': Cannot be computed')
 f = open ('./Output/Probabilities.txt', 'w+')
 for probability in probabilities:
 	f.write(probability[0] + ' (' + str(genders[1][int(genders[0].index(probability[2]))]) + '): ' + str(probability[1]) + '\n')

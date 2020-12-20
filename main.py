@@ -157,26 +157,27 @@ def compare(ppd, npd, plot, min_difference, sex):
 	return weighted_conditions
 
 
-def check_for_multiple_symptoms (patients, symptoms_raw, plot):
+def check_for_multiple_symptoms (patients, symptoms_raw, plot, gender):
 	symptoms = symptoms_raw.split(',')
 	symptoms_values = []
 	result = [0, 0, 0]
 	for symptom in symptoms:
 		symptoms_values.append(int(symptoms_general[1][symptoms_general[0].index(symptom)]))
 	for patient in patients:
-		has_symptoms = True
-		is_undetermined = False
-		for i in symptoms_values:
-			if patient.split(',')[i] == symptoms_general[3][symptoms_general[0].index(symptoms[symptoms_values.index(i)])]:
-				has_symptoms = False
-			elif not patient.split(',')[i] == symptoms_general[2][symptoms_general[0].index(symptoms[symptoms_values.index(i)])] and not patient.split(',')[i] == symptoms_general[3][symptoms_general[0].index(symptoms[symptoms_values.index(i)])]:
-				is_undetermined = True
-		if has_symptoms and not is_undetermined:
-			result[0] += 1
-		elif not has_symptoms and not is_undetermined:
-			result[1] += 1
-		else:
-			result[2] += 1
+		if patient.split(',')[2] == gender:
+			has_symptoms = True
+			is_undetermined = False
+			for i in symptoms_values:
+				if patient.split(',')[i] == symptoms_general[3][symptoms_general[0].index(symptoms[symptoms_values.index(i)])]:
+					has_symptoms = False
+				elif not patient.split(',')[i] == symptoms_general[2][symptoms_general[0].index(symptoms[symptoms_values.index(i)])] and not patient.split(',')[i] == symptoms_general[3][symptoms_general[0].index(symptoms[symptoms_values.index(i)])]:
+					is_undetermined = True
+			if has_symptoms and not is_undetermined:
+				result[0] += 1
+			elif not has_symptoms and not is_undetermined:
+				result[1] += 1
+			else:
+				result[2] += 1
 	if plot:
 		plt.title ("Presence of " + symptoms_raw)
 		plt_labels = ["Presence", "Absence", "Undetermined"]
@@ -232,34 +233,36 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 		    ['2', '2', '2', '2', '2', '1', '2', '2', '2', '2', '2', '2', '0', '0', '2', '2', '2', '2', '2',
 		     '0', '0', '0', '0']]
 
-positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", True, True)
+positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False, True)
 negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False, True)
-weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10, True)
+weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 0, True)
 combinations = generate_possible_combinations(weighted_conditions)
 #print (combinations)
 probabilities = []
-for combination in combinations:
-	mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, combination[0], False)
-	mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, combination[0], False)
-	if combination[1] == 'c':
-		if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_negative_patients_data[0] == 0:
-			x = (mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))
-			probabilities.append([combination[0], x/(x+1)])
-#			print (combination[0] + ': ' + str(x/(x+1)))
-		else:
-			if mult_negative_patients_data[0] == 0 and not (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0:
-				probabilities.append([combination[0], 1])
-#				print (combination[0] + ': 1')
-	if combination[1] == 'o':
-		if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_positive_patients_data[0] == 0:
-			x = (mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))/(mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))
-			probabilities.append([combination[0], 1-(x/(x+1))])
-#			print (combination[0] + ': ' + str(1-(x/(x+1))))
-		else:
-			if mult_positive_patients_data[0] == 0 and not (mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0:
-				probabilities.append([combination[0], 0])
-#				print (combination[0] + ': 0')
+genders = [['1', '2', '3'],["Male", "Female", "Undetermined"]]
+for gender in genders[0]:
+	for combination in combinations:
+		mult_positive_patients_data = check_for_multiple_symptoms (patients_COVID_Positive, combination[0], False, gender)
+		mult_negative_patients_data = check_for_multiple_symptoms (patients_COVID_Negative, combination[0], False, gender)
+		if combination[1] == 'c':
+			if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_negative_patients_data[0] == 0:
+				x = (mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))/(mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))
+				probabilities.append([combination[0], x/(x+1), gender])
+#				print (combination[0] + ': ' + str(x/(x+1)))
+			else:
+				if mult_negative_patients_data[0] == 0 and not (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0:
+					probabilities.append([combination[0], 1, gender])
+#					print (combination[0] + ': 1')
+		if combination[1] == 'o':
+			if not ((mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0 or (mult_negative_patients_data[0]+mult_negative_patients_data[1]) == 0) and not mult_positive_patients_data[0] == 0:
+				x = (mult_negative_patients_data[0]/(mult_negative_patients_data[0]+mult_negative_patients_data[1]))/(mult_positive_patients_data[0]/(mult_positive_patients_data[0]+mult_positive_patients_data[1]))
+				probabilities.append([combination[0], 1-(x/(x+1)), gender])
+#				print (combination[0] + ': ' + str(1-(x/(x+1))))
+			else:
+				if mult_positive_patients_data[0] == 0 and not (mult_positive_patients_data[0]+mult_positive_patients_data[1]) == 0:
+					probabilities.append([combination[0], 0, gender])
+#					print (combination[0] + ': 0')
 f = open ('./Output/Probabilities.txt', 'w+')
 for probability in probabilities:
-	f.write(probability[0] + ': ' + str(probability[1]) + '\n')
+	f.write(probability[0] + ' (' + str(genders[1][int(genders[0].index(probability[2]))]) + '): ' + str(probability[1]) + '\n')
 f.close()

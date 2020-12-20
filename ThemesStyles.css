@@ -1,0 +1,189 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: sans-serif;
+    font: gray;
+}
+p{
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+h2, h3{
+    font-style: italic;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.clear{
+    clear: both;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    clear: both;
+    border-radius: 10px;
+}
+
+header{
+    background: lightgray;
+    color: gray;
+    border-radius: 5px;
+}
+
+footer{
+    background-color: #eeeeec;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+    footer p{
+        color: #8c8c8c;
+    }
+    footer a{
+        color: gray;
+    }
+
+main{
+    border-top: solid 6px white;
+    position: relative;
+}
+
+    main .content{
+        width: 900px;
+        height: 610px;
+        font: gray;
+        font-family: sans-serif;
+        overflow: scroll;
+        margin: 10px auto 10px 0;
+        padding: 0 20px 23px 0;
+        margin-right: 10px;
+        margin-left: 0;
+    }
+    main .aside{
+        width: 220px;
+        margin: 10px;
+        margin-left: 20px;
+        border-radius: 7px;
+    }
+        main .aside ul.side-menu{
+            list-style: none;
+            padding: 10px 20px 23px 0;
+            margin-right: 0px;
+            border-radius: 7px;
+            margin-top: 10px;
+            height: 600px;
+        }
+        
+        main .aside ul.side-menu li{
+            margin: 7px 0;
+            padding-left: 20px;
+            padding-top: 9px;
+            /*list-style-type: circle;*/
+        }
+        main .aside ul.side-menu li.side-menu-title{
+            color: #5a5a5a;
+            font-size: 16px;
+            margin-top: 20px;
+            padding-left: 8%;
+            padding-bottom: 5%;
+            padding-top: 15%;
+
+            /* font-style: italic; */
+        }
+            body.light{
+                background:linear-gradient(white,#ffece2);
+                font-family: sans-serif;                                         
+                /*#343d53, #757e97*/
+            }   
+                body.light main div.container{
+                    background: linear-gradient(#29323c,#485563);
+                    color: aliceblue;
+                }
+                .content h1, h2{
+                    color: #ffece2;
+                }
+
+                body.light .aside ul.side-menu{
+                    background: linear-gradient(#ffece2, white);
+                } 
+
+                /*background: linear-gradient(#ff9a9f,#fad0cf)*/
+                header{
+                    background:#ffece2;
+                    color:#485563;
+                }
+
+                main .aside ul.side-menu li a{ 
+                    color: gray;
+                    text-decoration: none;
+                    font-size: small;
+                }
+
+                footer{
+                    background-color:white;
+                    overflow: hidden;
+                }
+                    footer p{
+                        color: #485563;
+                    }
+
+        body.dark{
+                font-family: sans-serif;
+            }
+
+            body{
+                background: linear-gradient(#757e97,#343d53);
+            }
+
+            body.dark main div.container{
+                background: linear-gradient(#343d53,#757e97);
+            }
+
+            body.dark .content{
+                color: aliceblue;
+            }
+
+            body.dark header{
+                    background: #343d53;
+                    color: aliceblue;
+                }
+                body.dark div.aside{
+                    background: linear-gradient(#fad0cf,#ff9a9f);
+                }  
+               
+                body.dark div.content{
+                    background: linear-gradient(#343d53,#757e97);
+                }  
+
+                body.dark footer {
+                        background-color: #343d53;
+                    }
+                    body.dark footer p{
+                        color: aliceblue;
+                    }
+                    body.dark a{ 
+                        color: white;
+                    }
+                    
+                body.dark main .aside ul.side-menu li.side-menu-title{
+                            color: white;
+                            font-size: 16px;
+                            padding-left: 0;
+                }
+
+                body.dark main .aside ul.side-menu li a{
+                    color: lightcyan;
+                    font-size: 12px;
+                }

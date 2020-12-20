@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>BitsXlaMarato_Project_2020</title>
+        <meta name="description" content="The HTML5 test">
+        <meta name="author" content="test">
+        <link rel="stylesheet" href="ThemesStyles.css">
+    </head>
+
+    <body class="light">
+
+        <header>
+            <section class="container">
+                <p>Sunday, December 20th 2020</p>
+            </section>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="aside left">
+                    <ul class="side-menu">
+                        <li class="side-menu-title">
+                            <i>Analysing possible COVID-19 symptoms:</i>
+                        </li>
+                        <li>
+                            <a href="symptoms.html">side menu link</a>
+                        </li>
+                        <li>
+                            <a href="symptoms.html">side menu link</a>
+                        </li>
+                        <li>
+                            <a href="symptoms.html">side menu link</a>
+                        </li>
+                        <li>
+                            <a href="symptoms.html">side menu link</a>
+                        </li>
+                            <li class="side-menu-title">
+                                <i>Possible correlation between COVID-19 and other health conditions:</i>
+                            </li>
+                        <li>
+                            <a href="conditions.html">Creating arrays to look for possible correlations</a>
+                        </li>
+                        <li>
+                            <a href="symptoms.html">Writing an algorithm to look for correlations and incompatibilities</a>
+                        </li>
+                        <li>
+                            <a href="symptoms.html">Calculating probability</a>
+                        </li>
+                        <!-- <li>
+                            <a href="">side menu link</a>
+                        </li> /-->
+                    </ul>
+                </div>
+                <div class="content right">
+                    <h1>BitsxlaMarato2020</h1>
+                    <h2>Project Description</h2>
+                    <p>The aim of this project is to find whether a symptom or a set of symptoms among a paediatric patient can be conclusive to diagnose or refute SARS-CoV-2. In order to achieve so, a dataset with over 1600 cases has been studied with Python3. It has also been attempted to create the files as comprehensible as possible for a third person willing to make use of the codes.</p>
+                    <h3>Dependencies</h3>
+                    <p>This project relies strongly on plotting and analysing data, and thus some external libraries had to be imported.
+                        Therefore, most programs may not work unless matplotlib and numpy are installed on the system.
+                    </p>
+                    <h2>Structure</h2>
+                    <h3>main.py</h3>
+                    <p>It is the main file of the project, and it calculates the probability of having SARS-CoV-2 by combining them. By the moment, it is capable of separating between gender, positive and negative diagnosis.</p>
+                    <h3>index_dataset.py</h3>
+                    <p>This file is a simple python script to retrieve a given field from the dataset and indicate its position. It is necessary as the dictionary provided was not completely precise.</p>
+                    <h3>reto2.py</h3>
+                    <p>Here one can find some arrays that can aid you in looking for correlations or incompatibilities between COVID and other infections/medical conditions.</p>
+                    <h3>covid-and-sth.py</h3>
+                    <p>This file contains a simple python algorithm that looks for the correlations mentioned above. It also contains a short program that calculates the probability of contacting COVID together with other conditions.</p>
+                    <h3>Files/</h3>
+                    <p>Under the directory Files/ one can expect to find the dataset (extension .csv) with over 1600 paediatric patients.</p>
+                    <h3>Output/</h3>
+                    <p>Under the directory Output/ some .txt files are stored. These contain the list of probabilities of having SARS-CoV-2 when presenting two different symptoms. There are a total of three files, being GenderAwareProbabilities.txt and GenderUnawareProbabilities.txt the two files with the whole list of combinations considered.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <section class="container">
+                <p class="left">
+                    Co-authors: Miguel Sanchez <a href="https://github.com/MiguelSanchezP">(MiguelSanchezP)</a>,
+                     Asia Sukhorukova <a href="https://github.com/AsiaSukh8">(AsiaSukh8)</a>  
+                </p>
+                <p>Find this project on <a href="https://github.com/MiguelSanchezP/Bitsxlamarato2020">GitHub</a> </p>
+            </section>
+        </footer>
+
+        <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+       <script src="bitsProject.js"></script>
+
+    </body>
+
+</html>

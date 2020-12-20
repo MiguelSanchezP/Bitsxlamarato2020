@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def check_for_symptoms (patients, symptoms, plot):
+def check_for_symptoms (patients, symptoms, plot, sex):
 	symptoms_data = []
 	figure_count = 1
 	for symptom in symptoms.split(','):
@@ -10,6 +10,10 @@ def check_for_symptoms (patients, symptoms, plot):
 		patient_undetermined = 0
 		positive_males = 0
 		positive_females = 0
+		negative_males = 0
+		negative_females = 0
+		undetermined_males = 0
+		undetermined_females = 0
 		for patient in patients:
 			if patient.split(',')[int(symptoms_general[1][symptoms_general[0].index(symptom)])] == symptoms_general[2][symptoms_general[0].index(symptom)]:
 				patient_with_symptom += 1
@@ -19,17 +23,36 @@ def check_for_symptoms (patients, symptoms, plot):
 					positive_females += 1
 			elif patient.split(',')[int(symptoms_general[1][symptoms_general[0].index(symptom)])] == symptoms_general[3][symptoms_general[0].index(symptom)]:
 				patient_without_symptom += 1
+				if patient.split(',')[2] == '1':
+					negative_males += 1
+				elif patient.split(',')[2] == '2':
+					negative_females += 1
 			else:
 				patient_undetermined += 1
-		data = [symptom, patient_with_symptom, patient_without_symptom, patient_undetermined, positive_males, positive_females]
+				if patient.split(',')[2] == '1':
+					undetermined_males += 1
+				elif patient.split(',')[2] == '2':
+					undetermined_females += 1
+		data = [symptom, patient_with_symptom, patient_without_symptom, patient_undetermined, positive_males, positive_females, negative_males, negative_females, undetermined_males, undetermined_females]
 		symptoms_data.append(data)
 		if plot:
 			plt.figure(figure_count)
-			plot_data = [patient_with_symptom, patient_without_symptom, patient_undetermined]
-			plot_labels = ["Positive", "Negative", "Undetermined"]
-			plt.pie (plot_data)
-			plt.legend(["Positive (" + str(round(patient_with_symptom/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative (" + str(round(patient_without_symptom/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100,2)) + "%)", "Undetermined (" + str(round(patient_undetermined/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100,2)) + "%)"], loc='lower left')
+			plot_data = []
+			colors = []
+			legend = []
+			if not sex:
+				plot_data = [patient_with_symptom, patient_without_symptom, patient_undetermined]
+				colors = ['#e0f8f5', '#f8b195', '#a8adb4']
+				legend = ["Positive (" + str(round(patient_with_symptom/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative (" + str(round(patient_without_symptom/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined (" + str(round(patient_undetermined/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)"]
+			else:
+				plot_data = [positive_males, positive_females, patient_with_symptom-positive_males-positive_females, negative_males, negative_females, patient_without_symptom-negative_males-negative_females, undetermined_males, undetermined_females, patient_undetermined-undetermined_males-undetermined_females]
+				colors = ['#e0f8f5', '#beede5', '#a7d9c9', '#f8b195', '#ffbd77', '#ffa13e', '#a8adb4', '#c3c8cd', '#d2d6d9']
+				legend = ["Positive Male (" + str(round(positive_males/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Positive Female (" + str(round(positive_females/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Positive Undetermined (" + str(round((patient_with_symptom-positive_males-positive_females)/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative Male (" + str(round(negative_males/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative Female (" + str(round(negative_females/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Negative Undetermined (" + str(round((patient_without_symptom-negative_males-negative_females)/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined Male (" + str(round(undetermined_males/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined Female (" + str(round(undetermined_females/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)", "Undetermined Undetermined (" + str(round((patient_undetermined-undetermined_males-undetermined_females)/(patient_with_symptom+patient_without_symptom+patient_undetermined)*100, 2)) + "%)"]
+
+			#plot_labels = ["Positive Male", "Positive Female", "Positive Undetermined", "Negative Male", "Negative Female", "Negative Undetermined", "Undetermined Male", "Undetermined Female", "Undetermined Undetermined"]
+			plt.pie (plot_data, colors=colors)
 			plt.title (symptom)
+			plt.legend(legend, loc='lower left', bbox_to_anchor=(-.1, 0), fontsize='x-small')
 			plt.tight_layout(h_pad=1)
 			figure_count += 1
 
@@ -209,9 +232,8 @@ symptoms_general = [["Fever", "Cough", "Dysphonia", "Dyspnea", "Tachypnea", "Alt
 		    ['2', '2', '2', '2', '2', '1', '2', '2', '2', '2', '2', '2', '0', '0', '2', '2', '2', '2', '2',
 		     '0', '0', '0', '0']]
 
-#check_for_symptoms(patients_COVID_Positive, "Cough", True)
-positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
-negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False)
+positive_patients_data = check_for_symptoms(patients_COVID_Positive, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", True, True)
+negative_patients_data = check_for_symptoms(patients_COVID_Negative, "Fever,Cough,Dysphonia,Dyspnea,Tachypnea,Alterated Respiratory Auscultation,Odynophagia,Nasal Congestion,Fatigue,Headache,Conjuntivitis,Retro-ocular Pain,Gastrointestinal Symptoms,Skin Signs,Lymphadenopathy,Hepatomegaly,Splenomegaly,Hemorrhagies,Irritability,Neurologic Manifestations,Shock,Taste Alteration,Smell Alteration", False, True)
 weighted_conditions = compare (positive_patients_data, negative_patients_data, True, 10, True)
 combinations = generate_possible_combinations(weighted_conditions)
 #print (combinations)

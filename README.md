@@ -1,6 +1,6 @@
 # BitsxlaMarato 2020
 ## Description
-The aim of this project is to find whether a symptom or a set of symptoms among a paediatric patient can be conclusive to diagnose or refute SARS-CoV-2. In order to achieve so, a dataset with over 1600 cases has been studied with Python3. It has also been attempted to create the files as comprehensible as possible for a third person willing to make use of the codes. 
+The aim of this project is to find whether a symptom or a set of symptoms among a paediatric patient can be conclusive to diagnose or refute SARS-CoV-2. In order to achieve so, a dataset with over 1600 cases has been studied with Python3. It has also been attempted to create the files as comprehensible as possible for a third person willing to make use of the codes. GREATER DETAIL ON THE WIKI!
 
 ## Dependencies 
 This project relies strongly on plotting and analysing data, and thus some external libraries had to be imported:

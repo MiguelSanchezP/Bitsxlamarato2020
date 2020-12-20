@@ -15,7 +15,9 @@ It is the main file of the project, and it calculates the probability of having 
 * ### index_dataset.py
 This file is a simple python script to retrieve a given field from the dataset and indicate its position. It is necessary as the dictionary provided was not completely precise.
 * ### reto2.py
+Here one can find some arrays that can aid you in looking for correlations or incompatibilities between COVID and other infections/medical conditions.
 * ### covid-and-sth.py
+This file contains a simple python algorithm that looks for the correlations mentioned above. It also contains a short program that calculates the probability of contacting COVID together with other conditions.
 * ### Files/
 Under the directory `Files/` one can expect to find the dataset (extension `.csv`) with over 1600 paediatric patients. 
 * ### Output/

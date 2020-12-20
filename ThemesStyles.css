@@ -51,6 +51,9 @@ footer{
     footer p{
         color: #8c8c8c;
     }
+    footer a{
+        color: gray;
+    }
 
 main{
     border-top: solid 6px white;
@@ -108,6 +111,9 @@ main{
                     background: linear-gradient(#29323c,#485563);
                     color: aliceblue;
                 }
+                .content h1, h2{
+                    color: #ffece2;
+                }
 
                 body.light .aside ul.side-menu{
                     background: linear-gradient(#ffece2, white);
@@ -119,7 +125,7 @@ main{
                     color:#485563;
                 }
 
-                a{ 
+                main .aside ul.side-menu li a{ 
                     color: gray;
                     text-decoration: none;
                     font-size: small;
